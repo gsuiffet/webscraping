@@ -3,7 +3,7 @@ var React = require('react');
 class Corporate extends React.Component {
     constructor() {
         super();
-        this.state = { name: "", employees: "", logo: null, corporate:""};
+        this.state = { name: "Corporate name", employees: "number of employees", logo: null, corporate:""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -38,16 +38,28 @@ class Corporate extends React.Component {
                         <div className="mui-col-md-8 mui-col-md-offset-2">
                             <div className="mui--appbar-height"></div>
                             <h1>Corporate</h1>
+                            <p>Enter the name of one corporate on Viadeo.</p>
+                            <p style={{color:"#777", fontStyle:"italic"}}>Exemple: <a title="coca" href="http://fr.viadeo.com/fr/company/renault" target="blank">renault</a>, <a title="coca" href="http://fr.viadeo.com/fr/company/coca-cola-entreprise" target="blank">coca-cola-entreprise</a>, <a title="coca" href="http://fr.viadeo.com/fr/company/orangina-schweppes" target="blank">orangina-schweppes</a>...</p>
                                 <form onSubmit={this.handleSubmit}>
-                                    <div className="form-group" >
+                                    <div className="form">
                                         <label>Corporate name</label>
-                                        <input type="text" id="corporate" name="corporate" placeholder="orangina-schweppes" value={this.state.corporate} onChange={this.handleChange}/>
+                                        <input type="text" id="corporate" name="corporate" placeholder="renault" value={this.state.corporate} onChange={this.handleChange}/>
+                                        <input type="submit" className="mui-btn mui-btn--primary" id="valider" value="Find"/>
                                     </div>
-                                    <input type="submit" className="btn btn-primary" id="valider" value="Submit"/>
                                 </form>
-                            <p> {this.state.name}</p>
-                            <p> {this.state.employees}</p>
-                            <img src="../src/img/logo.png" id="logoCorporate" alt="logo corporate"/>
+                            <div className="mui-row">
+                                <div className="mui-col-md-12 mui--text-center">
+                                    <div className="mui-col-xs-4">
+                                        <img src="../src/img/logo.png" id="logoCorporate" alt="logo corporate"/>
+                                    </div>
+                                    <div className="mui-col-xs-4" id="infoName">
+                                        <p> {this.state.name}</p>
+                                    </div>
+                                    <div className="mui-col-xs-4" id="infoEmployees">
+                                        <p> {this.state.employees}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
