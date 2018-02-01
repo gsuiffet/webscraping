@@ -21,6 +21,7 @@ Production mode :
 ```
 npm run build
 ```
+Open your browser on port 8080.
 ## Built With
 * [React](https://reactjs.org/)
 * [Webpack](https://webpack.js.org/)
