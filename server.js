@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/getdata', function (req, res) {
-    console.log("req.body.name",  req.body.corporate);
+    var error = "Please enter a correct name";
     const getData = async () => {
         const browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
@@ -29,7 +29,7 @@ app.post('/getdata', function (req, res) {
             let name = document.querySelector('h1').innerText;
             let employees = document.querySelector(".element-value.gu.gu-last").innerText;
             return {name, employees}
-        });+
+        });
         await page.waitForSelector('img');
         const svgImage = await page.$('img');
         await svgImage.screenshot({
@@ -48,6 +48,8 @@ app.post('/getdata', function (req, res) {
             }
         });
         return res.send(value);
+    }, function () {
+        return res.send({error:error});
     });
 });
 
