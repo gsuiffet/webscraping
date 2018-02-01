@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 class Corporate extends React.Component {
     constructor() {
@@ -26,7 +26,7 @@ class Corporate extends React.Component {
         this.setState({corporate: event.target.value});
     }
     handleSubmit(event) {
-        var that = this;
+        let that = this;
         if (this.state.corporate != "") {
             fetch('/getdata',{
                 method: 'POST',
@@ -57,7 +57,7 @@ class Corporate extends React.Component {
         event.preventDefault();
     }
     render() {
-        var corporate = "";
+        let corporate = "";
         if (this.state.loader != false) {
             corporate =
                 <div className="mui-col-md-12 mui--text-center">

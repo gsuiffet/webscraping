@@ -1,8 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Header = require('./components/header.js');
-var Corporate = require('./components/corporate.js');
-var Footer = require('./components/footer.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './components/header.js';
+import Corporate from './components/corporate.js';
+import Footer from './components/footer.js';
 
 class App extends React.Component {
     constructor() {
