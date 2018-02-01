@@ -14,6 +14,23 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+const webpack = require('webpack');
+const config = require('./webpack.config.js');
+const webpackMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
+const compiler = webpack(config);
+if (process.env.npm_lifecycle_script === "webpack && node server.js") {
+    app.use(webpackMiddleware(compiler, {
+        publicPath: "/dist", watchOptions: {
+            poll: true
+        },
+        stats: {
+            colors: true
+        }
+    }));
+    app.use(webpackHotMiddleware(compiler));
+}
+
 app.get('/', function (req, res) {
     res.render('index');
 });

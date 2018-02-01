@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "./node_modules/.bin/webpack ",
-    "start": "node server.js"
+    "dev": "webpack && node server.js",
+    "build": "NODE_ENV=production webpack -p && node server.js"
   },
   "author": "Guillaume Suiffet",
   "license": "ISC",
@@ -23,6 +23,12 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "webpack": "^3.10.0"
+    "babel-preset-react-hmre": "^1.1.1",
+    "compression-webpack-plugin": "^1.1.6",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.21.0"
   }
 }
