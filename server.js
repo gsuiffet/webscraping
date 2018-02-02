@@ -19,7 +19,7 @@ const config = require('./webpack.config.js');
 const webpackMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 const compiler = webpack(config);
-if (process.env.npm_lifecycle_script === "webpack && node server.js") {
+if (process.env.NODE_ENV === "development") {
     app.use(webpackMiddleware(compiler, {
         publicPath: "/dist", watchOptions: {
             poll: true
